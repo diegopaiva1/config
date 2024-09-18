@@ -4,18 +4,20 @@
 # Set mod key to Super (Windows key)
 set $mod Mod4
 
-font pango:DejaVu Sans Mono 11
+font pango:DejaVu Sans Mono 10
 gaps outer 0
 gaps inner 15
-smart_gaps on
+default_border pixel 2
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod 
 
-bar {
-        status_command i3blocks
-        position top
-}
+#bar {
+#        status_command i3blocks
+#        position top
+#}
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -28,12 +30,12 @@ exec --no-startup-id nm-applet
 # Compositor
 exec --no-startup-id picom --config ~/.config/picom/picom.conf 
 
+# Monitor setup
+exec --no-startup-id xrandr --output HDMI-1-0 --auto --primary --right-of eDP-1 --auto
+
 # Keep wallpaper after restarting the system 
-exec --no-startup-id nitrogen --restore                        
-
-# Disable laptop screen
-exec --no-startup-id xrandr --output eDP-1-1 --off             
-
+exec feh --bg-scale ~/Downloads/wallpaperflare.com_wallpaper.jpg
+ 
 # =============================== Key bindings =============================== 
 # Start a terminal
 bindsym $mod+Return exec alacritty                
@@ -48,7 +50,7 @@ bindsym $mod+o split toggle
 bindsym $mod+f fullscreen toggle         
 
 # Change container layout (stacked, tabbed, toggle split)
-bindsym $mod+question layout toggle all                  
+bindsym $mod+z layout toggle tabbed stacked splitv splith
 
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle                
@@ -63,7 +65,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart                                                            
 
 # rofi dmenu launcher
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-3/launcher.sh         
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-3/launcher.sh         
 
 # rofi powermenu
 bindsym $mod+x exec --no-startup-id ~/.config/rofi/powermenu/type-1/powermenu.sh        

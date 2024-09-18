@@ -21,7 +21,7 @@ import:
 # each instance of Alacritty. If it is not present, alacritty will
 # check the local terminfo database and use `alacritty` if it is
 # available, otherwise `xterm-256color` is used.
-#TERM: alacritty
+# TERM: alacritty
 
 window:
   # Window dimensions (changes require restart)
@@ -46,9 +46,9 @@ window:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
-  #  x: 0
-  #  y: 0
+  padding:
+   x: 10
+   y: 10
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -68,7 +68,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.98
+  opacity: 0.4
 
   # Startup Mode (changes require restart)
   #
@@ -82,7 +82,7 @@ window:
   #startup_mode: Windowed
 
   # Window title
-  # title: Alacritty
+  title: Alacritty
 
   # Allow terminal applications to change Alacritty's window title.
   # dynamic_title: false
@@ -177,10 +177,10 @@ font:
 
 # Colors (Tomorrow Night)
 #colors:
-# Default colors
-#primary:
-#  background: '#1d1f21'
-#  foreground: '#c5c8c6'
+  # sets background color to light gray (#eee) and font color to white (#fff)
+  #primary:
+  # background: '#eeeeee'
+  # foreground: '#ffffff'
 
 # Bright and dim foreground colors
 #
